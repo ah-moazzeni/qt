@@ -10,30 +10,24 @@ pipeline {
         stage('Setup Python Environment') {
             steps {
                 sh '''
-                #!/bin/bash
-                # Create a virtual environment
+                # Use Bash shell explicitly
+                bash -c "
                 python3 -m venv ${VENV_DIR}
-
-                # Activate the virtual environment
                 source ${VENV_DIR}/bin/activate
-
-                # Upgrade pip to ensure compatibility
                 pip install --upgrade pip
-
-                # Install necessary packages within the virtual environment
                 pip install pyinstaller PyQt5
+                "
                 '''
             }
         }
         stage('Build Executable') {
             steps {
                 sh '''
-                #!/bin/bash
-                # Activate the virtual environment
+                # Use Bash shell explicitly
+                bash -c "
                 source ${VENV_DIR}/bin/activate
-
-                # Use pyinstaller to create a standalone executable
                 pyinstaller --onefile ${PROJECT_NAME}.py
+                "
                 '''
             }
         }
