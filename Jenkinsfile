@@ -3,6 +3,7 @@ pipeline {
     environment {
         PROJECT_NAME = 'hello_app'
         DIST_DIR = 'dist'
+        VENV_DIR = 'venv'
     }
     stages {
 
