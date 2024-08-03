@@ -6,14 +6,22 @@ pipeline {
     }
     stages {
 
-        stage('Install Dependencies') {
+        stage('Setup Python Environment') {
             steps {
-                sh 'pip install pyinstaller PyQt5'
+                sh '''
+                python3 -m venv venv
+                source venv/bin/activate
+                pip install --upgrade pip
+                pip install pyinstaller PyQt5
+                '''
             }
         }
         stage('Build Executable') {
             steps {
-                sh "pyinstaller --onefile main.py"
+                sh '''
+                source venv/bin/activate
+                pyinstaller --onefile ${PROJECT_NAME}.py
+                '''
             }
         }
         stage('Archive Artifacts') {
