@@ -26,7 +26,7 @@ pipeline {
                 # Use Bash shell explicitly
                 bash -c "
                 source ${VENV_DIR}/bin/activate
-                pyinstaller --onefile ${PROJECT_NAME}.py
+                pyinstaller --onefile main.py
                 "
                 '''
             }
