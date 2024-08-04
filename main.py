@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget
-
+import pkgutil
 def main():
     app = QApplication(sys.argv)
     window = QWidget()
