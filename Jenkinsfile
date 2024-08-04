@@ -4,7 +4,7 @@ pipeline {
         PROJECT_NAME = 'hello_app'
         DIST_DIR = 'dist'
         VENV_DIR = 'venv'
-        LD_LIBRARY_PATH = '/usr/local/glibc-2.36/lib' // Adjust this path if needed
+        //LD_LIBRARY_PATH = '/usr/local/glibc-2.36/lib' // Adjust this path if needed
     }
     stages {
         stage('Setup Python Environment') {
