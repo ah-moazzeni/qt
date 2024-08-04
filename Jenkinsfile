@@ -18,7 +18,8 @@ pipeline {
                 source ${VENV_DIR}/bin/activate
 //                 pip install --upgrade pip
                 pip install pyinstaller
-                pip install PyQt5 ==5.15.7
+                pip install PyQt5
+                pip install PyQt5-sip
                 "
                 '''
             }
