@@ -11,8 +11,8 @@ pipeline {
             steps {
                 sh '''
                 # Ensure necessary libraries are installed
-                sudo apt-get update
-                sudo apt-get install -y libglib2.0-0 libxkbcommon-x11-0 libxcb1 libxcb-render0 libxcb-shape0 libxcb-xfixes0
+                 apt-get update
+                apt-get install -y libglib2.0-0 libxkbcommon-x11-0 libxcb1 libxcb-render0 libxcb-shape0 libxcb-xfixes0
                 '''
             }
         }
