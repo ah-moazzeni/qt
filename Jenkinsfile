@@ -31,7 +31,7 @@ pipeline {
                 /bin/bash -c "
                 export LD_LIBRARY_PATH=/usr/local/glibc-2.36/lib:$LD_LIBRARY_PATH
                 source ${VENV_DIR}/bin/activate
-                pyinstaller --onefile --hidden-import=PyQt5.QtCore --hidden-import=PyQt5 --hidden-import=PyQt5.sip main.py
+                pyinstaller --onefile --hidden-import=PyQt5.QtCore --hidden-import=PyQt5 --hidden-import=PyQt5.sip --hidden-import=PyQt5.QtGui main.py
                 "
                 '''
             }
