@@ -16,8 +16,9 @@ pipeline {
                 export LD_LIBRARY_PATH=/usr/local/glibc-2.36/lib:$LD_LIBRARY_PATH
                 python3 -m venv ${VENV_DIR}
                 source ${VENV_DIR}/bin/activate
-                pip install --upgrade pip
-                pip install pyinstaller PyQt5
+//                 pip install --upgrade pip
+                pip install pyinstaller
+                pip install PyQt5
                 "
                 '''
             }
