@@ -7,6 +7,15 @@ pipeline {
 //         LD_LIBRARY_PATH = '/usr/local/glibc-2.36/lib' // Adjust this path if needed
     }
     stages {
+    stage('Install Dependencies') {
+            steps {
+                sh '''
+                # Ensure necessary libraries are installed
+                sudo apt-get update
+                sudo apt-get install -y libglib2.0-0 libxkbcommon-x11-0 libxcb1 libxcb-render0 libxcb-shape0 libxcb-xfixes0
+                '''
+            }
+        }
     stage('Setup Python Environment') {
         steps {
 
