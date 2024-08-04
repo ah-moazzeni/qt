@@ -4,10 +4,9 @@ pipeline {
         PROJECT_NAME = 'hello_app'
         DIST_DIR = 'dist'
         VENV_DIR = 'venv'
-
+        LD_LIBRARY_PATH = '/usr/local/glibc-2.36/lib' // Adjust this path if needed
     }
     stages {
-
         stage('Setup Python Environment') {
             steps {
                 sh '''
@@ -15,7 +14,7 @@ pipeline {
                 bash -c "
                 python3 -m venv ${VENV_DIR}
                 source ${VENV_DIR}/bin/activate
-//                 pip install --upgrade pip
+                pip install --upgrade pip
                 pip install pyinstaller PyQt5
                 "
                 '''
