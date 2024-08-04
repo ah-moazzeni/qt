@@ -4,30 +4,31 @@ pipeline {
         PROJECT_NAME = 'hello_app'
         DIST_DIR = 'dist'
         VENV_DIR = 'venv'
-        LD_LIBRARY_PATH = '/usr/local/glibc-2.36/lib' // Adjust this path if needed
+//         LD_LIBRARY_PATH = '/usr/local/glibc-2.36/lib' // Adjust this path if needed
     }
     stages {
-        stage('Setup Python Environment') {
-            steps {
+        steps {
                 sh '''
-                # Use Bash shell explicitly
-//                 bash -c "
+                # Set LD_LIBRARY_PATH and use Bash shell explicitly
+                /bin/bash -c "
+                export LD_LIBRARY_PATH=/usr/local/glibc-2.36/lib:$LD_LIBRARY_PATH
                 python3 -m venv ${VENV_DIR}
                 source ${VENV_DIR}/bin/activate
                 pip install --upgrade pip
                 pip install pyinstaller PyQt5
-//                 "
+                "
                 '''
             }
         }
         stage('Build Executable') {
             steps {
                 sh '''
-                # Use Bash shell explicitly
-//                 bash -c "
+                # Set LD_LIBRARY_PATH and use Bash shell explicitly
+                /bin/bash -c "
+                export LD_LIBRARY_PATH=/usr/local/glibc-2.36/lib:$LD_LIBRARY_PATH
                 source ${VENV_DIR}/bin/activate
                 pyinstaller --onefile main.py
-//                 "
+                "
                 '''
             }
         }
