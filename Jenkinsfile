@@ -4,19 +4,19 @@ pipeline {
         PROJECT_NAME = 'hello_app'
         DIST_DIR = 'dist'
         VENV_DIR = 'venv'
-        //LD_LIBRARY_PATH = '/usr/local/glibc-2.36/lib' // Adjust this path if needed
+        LD_LIBRARY_PATH = '/usr/local/glibc-2.36/lib' // Adjust this path if needed
     }
     stages {
         stage('Setup Python Environment') {
             steps {
                 sh '''
                 # Use Bash shell explicitly
-                bash -c "
+//                 bash -c "
                 python3 -m venv ${VENV_DIR}
                 source ${VENV_DIR}/bin/activate
                 pip install --upgrade pip
                 pip install pyinstaller PyQt5
-                "
+//                 "
                 '''
             }
         }
@@ -24,10 +24,10 @@ pipeline {
             steps {
                 sh '''
                 # Use Bash shell explicitly
-                bash -c "
+//                 bash -c "
                 source ${VENV_DIR}/bin/activate
                 pyinstaller --onefile main.py
-                "
+//                 "
                 '''
             }
         }
